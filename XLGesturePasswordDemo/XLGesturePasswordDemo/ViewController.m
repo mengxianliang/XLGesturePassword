@@ -28,7 +28,7 @@
     
     //密码输入
     _passWord = [[XLGesturePassword alloc] init];
-    _passWord.frame = CGRectMake(0, 0, self.view.bounds.size.width, self.view.bounds.size.width);
+    _passWord.bounds = CGRectMake(0, 0, self.view.bounds.size.width, self.view.bounds.size.width);
     _passWord.center = self.view.center;
     _passWord.itemBackGoundColor = ligntBlueColor;
     _passWord.itemCenterBallColor = blueColor;
