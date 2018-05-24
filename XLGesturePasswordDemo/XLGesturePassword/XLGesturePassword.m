@@ -7,7 +7,7 @@
 //
 
 #import "XLGesturePassword.h"
-#import "XLGestureCell.h"
+#import "XLGesturePasswordCell.h"
 
 @interface XLGesturePassword ()<UICollectionViewDelegate,UICollectionViewDataSource,UICollectionViewDelegateFlowLayout> {
     //集合视图
@@ -18,6 +18,8 @@
     CAShapeLayer *_layer;
     //存放每次手势路径上的indexPath
     NSMutableArray <NSIndexPath *>*_passwordIndexPathArr;
+    //密码block
+    PasswordBlock _passwordBlock;
 }
 @end
 
@@ -32,14 +34,13 @@
 
 - (void)buildUI {
     
-    self.layer.borderWidth = 1;
     self.layer.masksToBounds = true;
     
     //初始化collectionView
     UICollectionViewFlowLayout *layout = [[UICollectionViewFlowLayout alloc] init];
     _collectionView = [[UICollectionView alloc] initWithFrame:CGRectZero collectionViewLayout:layout];
     _collectionView.backgroundColor = [UIColor clearColor];
-    [_collectionView registerClass:[XLGestureCell class] forCellWithReuseIdentifier:@"XLGestureCell"];
+    [_collectionView registerClass:[XLGesturePasswordCell class] forCellWithReuseIdentifier:@"XLGesturePasswordCell"];
     _collectionView.dataSource = self;
     _collectionView.delegate = self;
     [self addSubview:_collectionView];
@@ -94,8 +95,8 @@
 }
 
 - (UICollectionViewCell *)collectionView:(UICollectionView *)collectionView cellForItemAtIndexPath:(NSIndexPath *)indexPath {
-    static NSString* cellId = @"XLGestureCell";
-    XLGestureCell* cell = [collectionView dequeueReusableCellWithReuseIdentifier:cellId forIndexPath:indexPath];
+    static NSString* cellId = @"XLGesturePasswordCell";
+    XLGesturePasswordCell* cell = [collectionView dequeueReusableCellWithReuseIdentifier:cellId forIndexPath:indexPath];
     cell.gestureSelected = [_passwordIndexPathArr containsObject:indexPath];
     cell.itemBackGoundColor = self.itemBackGoundColor;
     cell.itemCenterBallColor = self.itemCenterBallColor;
@@ -133,13 +134,7 @@
 
 //手势开始
 - (void)gestureBegan {
-    //重置连线
-    [_path removeAllPoints];
-    _layer.path = _path.CGPath;
-    //重置选中IndexPath
-    [_passwordIndexPathArr removeAllObjects];
-    //刷新列表
-    [_collectionView reloadData];
+    [self refresh];
 }
 
 //手势变化
@@ -151,7 +146,7 @@
 //更新路径上的indexPath
 - (void)updatePasswordIndexPathArr:(CGPoint)point {
     for (NSIndexPath *indexPath in _collectionView.indexPathsForVisibleItems) {
-        XLGestureCell *cell = (XLGestureCell *)[_collectionView cellForItemAtIndexPath:indexPath];
+        XLGesturePasswordCell *cell = (XLGesturePasswordCell *)[_collectionView cellForItemAtIndexPath:indexPath];
         if (CGRectContainsPoint(cell.frame, point)) {
             if (![_passwordIndexPathArr containsObject:indexPath]) {
                 [_passwordIndexPathArr addObject:indexPath];
@@ -185,19 +180,54 @@
 
 //手势结束
 - (void)gestureEnded {
+    //显示手势路径
+    [self configGesturePath];
     NSString *password = @"";
     for (NSIndexPath *indexPath in _passwordIndexPathArr) {
         password = [NSString stringWithFormat:@"%@%zd",password,indexPath.row];
     }
-    NSLog(@"密码是：%@",password);
-    //显示路径
-    [self configGesturePath];
+    if (_passwordBlock) {
+        _passwordBlock(password);
+    }
 }
 
 #pragma mark -
 #pragma mark Setter
-- (void)setLineColor:(UIColor *)lineColor {
-    _layer.strokeColor = lineColor.CGColor;
+//设置线条正常颜色
+- (void)setLineNormalColor:(UIColor *)lineNormalColor {
+    _lineNormalColor = lineNormalColor;
+    _layer.strokeColor = lineNormalColor.CGColor;
 }
 
+//设置线条错误颜色
+- (void)setLineErrorColor:(UIColor *)lineErrorColor {
+    _lineErrorColor = lineErrorColor;
+}
+
+#pragma mark -
+#pragma mark 功能方法
+//报错
+- (void)showError {
+    _layer.strokeColor = _lineErrorColor.CGColor;
+    dispatch_time_t delayTime = dispatch_time(DISPATCH_TIME_NOW, (int64_t)(1.0 * NSEC_PER_SEC));
+    dispatch_after(delayTime, dispatch_get_main_queue(), ^{
+        [self refresh];
+    });
+}
+//重置
+- (void)refresh {
+    //刷新列表
+    [_passwordIndexPathArr removeAllObjects];
+    [_collectionView reloadData];
+    //更新路径
+    [_path removeAllPoints];
+    _layer.path = _path.CGPath;
+    _layer.strokeColor = _lineNormalColor.CGColor;
+    
+}
+
+//添加密码输入回调
+- (void)addPasswordBlock:(PasswordBlock)passwordBlock {
+    _passwordBlock = passwordBlock;
+}
 @end

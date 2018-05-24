@@ -13,9 +13,10 @@
 		5E5738AE20B54E5F00A1BEBE /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 5E5738AD20B54E5F00A1BEBE /* Assets.xcassets */; };
 		5E5738B120B54E5F00A1BEBE /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 5E5738AF20B54E5F00A1BEBE /* LaunchScreen.storyboard */; };
 		5E5738B420B54E5F00A1BEBE /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 5E5738B320B54E5F00A1BEBE /* main.m */; };
-		5E5738C120B54E7100A1BEBE /* XLGestureCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 5E5738BB20B54E7000A1BEBE /* XLGestureCell.m */; };
+		5E5738C120B54E7100A1BEBE /* XLGesturePasswordCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 5E5738BB20B54E7000A1BEBE /* XLGesturePasswordCell.m */; };
 		5E5738C220B54E7100A1BEBE /* XLGestureInfoView.m in Sources */ = {isa = PBXBuildFile; fileRef = 5E5738BD20B54E7000A1BEBE /* XLGestureInfoView.m */; };
 		5E5738C320B54E7100A1BEBE /* XLGesturePassword.m in Sources */ = {isa = PBXBuildFile; fileRef = 5E5738C020B54E7000A1BEBE /* XLGesturePassword.m */; };
+		5E5738C620B654D400A1BEBE /* XLGestureInfoViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 5E5738C520B654D400A1BEBE /* XLGestureInfoViewCell.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -29,12 +30,14 @@
 		5E5738B020B54E5F00A1BEBE /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		5E5738B220B54E5F00A1BEBE /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		5E5738B320B54E5F00A1BEBE /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
-		5E5738BB20B54E7000A1BEBE /* XLGestureCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = XLGestureCell.m; sourceTree = "<group>"; };
+		5E5738BB20B54E7000A1BEBE /* XLGesturePasswordCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = XLGesturePasswordCell.m; sourceTree = "<group>"; };
 		5E5738BC20B54E7000A1BEBE /* XLGesturePassword.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = XLGesturePassword.h; sourceTree = "<group>"; };
 		5E5738BD20B54E7000A1BEBE /* XLGestureInfoView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = XLGestureInfoView.m; sourceTree = "<group>"; };
-		5E5738BE20B54E7000A1BEBE /* XLGestureCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = XLGestureCell.h; sourceTree = "<group>"; };
+		5E5738BE20B54E7000A1BEBE /* XLGesturePasswordCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = XLGesturePasswordCell.h; sourceTree = "<group>"; };
 		5E5738BF20B54E7000A1BEBE /* XLGestureInfoView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = XLGestureInfoView.h; sourceTree = "<group>"; };
 		5E5738C020B54E7000A1BEBE /* XLGesturePassword.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = XLGesturePassword.m; sourceTree = "<group>"; };
+		5E5738C420B654D400A1BEBE /* XLGestureInfoViewCell.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = XLGestureInfoViewCell.h; sourceTree = "<group>"; };
+		5E5738C520B654D400A1BEBE /* XLGestureInfoViewCell.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = XLGestureInfoViewCell.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -86,10 +89,12 @@
 			children = (
 				5E5738BC20B54E7000A1BEBE /* XLGesturePassword.h */,
 				5E5738C020B54E7000A1BEBE /* XLGesturePassword.m */,
-				5E5738BE20B54E7000A1BEBE /* XLGestureCell.h */,
-				5E5738BB20B54E7000A1BEBE /* XLGestureCell.m */,
+				5E5738BE20B54E7000A1BEBE /* XLGesturePasswordCell.h */,
+				5E5738BB20B54E7000A1BEBE /* XLGesturePasswordCell.m */,
 				5E5738BF20B54E7000A1BEBE /* XLGestureInfoView.h */,
 				5E5738BD20B54E7000A1BEBE /* XLGestureInfoView.m */,
+				5E5738C420B654D400A1BEBE /* XLGestureInfoViewCell.h */,
+				5E5738C520B654D400A1BEBE /* XLGestureInfoViewCell.m */,
 			);
 			path = XLGesturePassword;
 			sourceTree = "<group>";
@@ -166,8 +171,9 @@
 			files = (
 				5E5738C320B54E7100A1BEBE /* XLGesturePassword.m in Sources */,
 				5E5738A920B54E5E00A1BEBE /* ViewController.m in Sources */,
-				5E5738C120B54E7100A1BEBE /* XLGestureCell.m in Sources */,
+				5E5738C120B54E7100A1BEBE /* XLGesturePasswordCell.m in Sources */,
 				5E5738C220B54E7100A1BEBE /* XLGestureInfoView.m in Sources */,
+				5E5738C620B654D400A1BEBE /* XLGestureInfoViewCell.m in Sources */,
 				5E5738B420B54E5F00A1BEBE /* main.m in Sources */,
 				5E5738A620B54E5D00A1BEBE /* AppDelegate.m in Sources */,
 			);

@@ -10,6 +10,10 @@
 
 @interface ViewController : UIViewController
 
+- (IBAction)Reenter:(id)sender;
+
+- (IBAction)ShowError:(id)sender;
+
 
 @end
 

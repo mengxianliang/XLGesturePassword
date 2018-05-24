@@ -6,14 +6,14 @@
 //  Copyright © 2018年 jwzt. All rights reserved.
 //
 
-#import "XLGestureCell.h"
+#import "XLGesturePasswordCell.h"
 
-@interface XLGestureCell () {
+@interface XLGesturePasswordCell () {
     UIView *_centerBall;
 }
 @end
 
-@implementation XLGestureCell
+@implementation XLGesturePasswordCell
 
 - (instancetype)initWithFrame:(CGRect)frame {
     if (self = [super initWithFrame:frame]) {

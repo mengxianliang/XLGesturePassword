@@ -8,7 +8,7 @@
 
 #import <UIKit/UIKit.h>
 
-@interface XLGestureCell : UICollectionViewCell
+@interface XLGesturePasswordCell : UICollectionViewCell
 
 //item背景色
 @property (nonatomic, strong) UIColor *itemBackGoundColor;

@@ -8,13 +8,22 @@
 
 #import <UIKit/UIKit.h>
 
+typedef void(^PasswordBlock)(NSString *password);
+
 @interface XLGesturePassword : UIView
 
 //item背景色
 @property (nonatomic, strong) UIColor *itemBackGoundColor;
 //item中间圆球的颜色
 @property (nonatomic, strong) UIColor *itemCenterBallColor;
-//线条颜色
-@property (nonatomic, strong) UIColor *lineColor;
-
+//线条正常状态的颜色
+@property (nonatomic, strong) UIColor *lineNormalColor;
+//线条错误状态的颜色
+@property (nonatomic, strong) UIColor *lineErrorColor;
+//重新输入
+- (void)refresh;
+//错误
+- (void)showError;
+//密码回调
+- (void)addPasswordBlock:(PasswordBlock)passwordBlock;
 @end

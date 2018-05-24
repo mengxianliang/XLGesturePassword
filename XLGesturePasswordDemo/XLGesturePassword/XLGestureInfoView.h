@@ -9,5 +9,11 @@
 #import <UIKit/UIKit.h>
 
 @interface XLGestureInfoView : UIView
+//选中颜色
+@property (nonatomic, strong) UIColor *itemBackGoundColor;
+//要显示的密码
+@property (nonatomic, copy) NSString *passWord;
+//重新输入
+- (void)refresh;
 
 @end
