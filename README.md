@@ -1,5 +1,4 @@
 # XLGesturePassword
-手势密码
 
 ### 显示效果
 
