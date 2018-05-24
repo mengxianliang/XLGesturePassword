@@ -3,7 +3,7 @@
 
 ### 显示效果
 
-<img src="https://github.com/mengxianliang/XLGesturePassword/blob/master/GIF/1.gif" width=300 height=623 />
+<img src="https://github.com/mengxianliang/XLGesturePassword/blob/master/GIF/1.gif" width=300 height=534 />
 
 ### 使用方法
 
