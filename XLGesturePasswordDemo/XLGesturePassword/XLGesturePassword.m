@@ -28,6 +28,7 @@
 - (instancetype)init {
     if (self = [super init]) {
         [self buildUI];
+        [self setDefaultColor];
     }
     return self;
 }
@@ -62,6 +63,14 @@
     
     //初始选中化数组
     _passwordIndexPathArr = [[NSMutableArray alloc] init];
+}
+
+//设置默认颜色
+- (void)setDefaultColor {
+    self.itemBackGoundColor = [UIColor lightGrayColor];
+    self.itemCenterBallColor = [UIColor grayColor];
+    self.lineNormalColor = [UIColor grayColor];
+    self.lineErrorColor = [UIColor redColor];
 }
 
 //自动布局

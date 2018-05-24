@@ -11,14 +11,13 @@
 typedef void(^PasswordBlock)(NSString *password);
 
 @interface XLGesturePassword : UIView
-
-//item背景色
+//item背景色 默认浅灰色
 @property (nonatomic, strong) UIColor *itemBackGoundColor;
-//item中间圆球的颜色
+//item中间圆球的颜色 默认灰色
 @property (nonatomic, strong) UIColor *itemCenterBallColor;
-//线条正常状态的颜色
+//线条正常状态的颜色 默认灰色
 @property (nonatomic, strong) UIColor *lineNormalColor;
-//线条错误状态的颜色
+//线条错误状态的颜色 默认红色
 @property (nonatomic, strong) UIColor *lineErrorColor;
 //重新输入
 - (void)refresh;

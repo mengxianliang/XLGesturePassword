@@ -19,6 +19,7 @@
 - (instancetype)init {
     if (self = [super init]) {
         [self buildUI];
+        [self setDefaultColor];
     }
     return self;
 }
@@ -40,6 +41,12 @@
     [super layoutSubviews];
     _collectionView.frame = self.bounds;
 }
+
+//设置默认颜色
+- (void)setDefaultColor {
+    self.itemBackGoundColor = [UIColor lightGrayColor];
+}
+
 
 #pragma mark -
 #pragma mark CollectonViewDataSource
